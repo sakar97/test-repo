@@ -1,0 +1,8 @@
+---
+# vars file for github_runner
+path: C:\actions-runner
+personal_token : "AJCA2XH65VQADTYNNE6OYTDCEI3ZW"
+url : "https://github.com/sakar97/test-repo"
+state: present
+github_version: 2.287.1
+runner_hash: 91f8ab7837b2968328fa04fa14ec8f18767b0dfa12b2b293e77cf36ee6d33673

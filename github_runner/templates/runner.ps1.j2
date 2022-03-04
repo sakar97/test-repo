@@ -1,0 +1,5 @@
+cd {{ path }}
+Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v{{github_version}}/actions-runner-win-x64-{{github_version}}.zip -OutFile actions-runner-win-x64-2.287.1.zip
+if((Get-FileHash -Path actions-runner-win-x64-{{github_version}}.zip -Algorithm SHA256).Hash.ToUpper() -ne '{{runner_hash}}'.ToUpper()){ throw 'Computed checksum did not match' }
+Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD/actions-runner-win-x64-{{github_version}}.zip", "$PWD")
+./config.cmd --url {{ url }} --token {{ personal_token }}
